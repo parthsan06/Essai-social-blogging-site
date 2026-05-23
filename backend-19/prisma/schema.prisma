@@ -1,0 +1,26 @@
+generator client {
+  provider        = "prisma-client"
+  output          = "../src/generated"
+  runtime         = "workerd"
+  moduleFormat    = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       String @id @unique @default(uuid())
+  username String @unique
+  password String
+  posts    Blog[]
+}
+
+model Blog {
+  id        String  @id @unique @default(uuid())
+  title     String  @unique
+  content   String
+  published Boolean @default(false)
+  authorId  String
+  author    User    @relation(fields: [authorId], references: [id])
+}
