@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { PrismaClient } from '../generated/client'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { verify } from 'hono/jwt'
-import {createPostSchema, updatePostSchema} from '../../../frontend/src/types/index'
+import {createPostSchema, updatePostSchema} from '../../../common/index'
 
 export const blogRouter = new Hono<{
   Bindings: { DATABASE_URL: string, JWT_SECRET: string },

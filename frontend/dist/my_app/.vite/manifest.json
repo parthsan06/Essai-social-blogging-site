@@ -1,0 +1,17 @@
+{
+  "src/client.tsx": {
+    "file": "assets/client.js",
+    "name": "client",
+    "src": "src/client.tsx",
+    "isEntry": true,
+    "css": [
+      "assets/client.css"
+    ]
+  },
+  "virtual:cloudflare/worker-entry": {
+    "file": "assets/client2.js",
+    "name": "index",
+    "src": "virtual:cloudflare/worker-entry",
+    "isEntry": true
+  }
+}

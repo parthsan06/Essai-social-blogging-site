@@ -8,7 +8,7 @@
     "generate": "prisma generate"
   },
   "dependencies": {
-    "@medium/common": "file:../commmon",
+    "@medium/common": "file:../common",
     "@prisma/adapter-pg": "7.8.0",
     "@prisma/client": "7.8.0",
     "@prisma/extension-accelerate": "latest",

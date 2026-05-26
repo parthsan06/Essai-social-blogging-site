@@ -5,14 +5,8 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "skipLibCheck": true,
-    "lib": [
-      "ESNext",
-      "WebWorker"
-    ],
+    "lib": ["ESNext", "DOM"],
     "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
-    "paths": {
-    "../../common/index": ["../common/index.ts"]
-    }
-  },
+    "jsxImportSource": "hono/jsx"
+  }
 }

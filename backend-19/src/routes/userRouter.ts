@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { PrismaClient } from '../generated/client'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign } from 'hono/jwt'
-import {signupSchema, signinSchema} from '../../../frontend/src/types/index'
+import { signupSchema, signinSchema } from '../../../common/index'
 
 export const userRouter = new Hono<{
   Bindings: {
@@ -40,7 +40,7 @@ userRouter.post('/signin', async (c) => {
 
   const body = await c.req.json()
   try {
-    const result = signupSchema.safeParse(body)
+    const result = signinSchema.safeParse(body)
     if (!result.success){
       c.status(400)
       return c.json({error: result.error})
@@ -51,7 +51,7 @@ userRouter.post('/signin', async (c) => {
       return c.json({ error: 'invalid credentials.' })
     }
     const token = await sign({ id: user.id }, c.env.JWT_SECRET)
-    return c.json({ token })
+    return c.json({ token, userId: user.id })
   } catch (e) {
     console.error('SIGNIN ERROR:', e)
     c.status(403)
